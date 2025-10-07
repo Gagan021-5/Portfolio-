@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 import htmlsvg from "../assets/html-5-svgrepo-com.svg";
 import csssvg from "../assets/css-svgrepo-com.svg";
 import jssvg from "../assets/javascript-svgrepo-com.svg";
@@ -9,41 +10,158 @@ import expressvg from "../assets/express-svgrepo-com.svg";
 import postsqlsvg from "../assets/postgresql-svgrepo-com.svg";
 import mongodbsvg from "../assets/mongo-svgrepo-com.svg";
 import firebasesvg from "../assets/firebase-svgrepo-com.svg";
-
+import githubsvg from "../assets/github-142-svgrepo-com.svg";
+import pythonsvg from "../assets/python-svgrepo-com.svg";
+import csvg from "../assets/c++.svg";
+import javsvg from "../assets/java-svgrepo-com.svg";
+import jupyter from "../assets/jupyter-svgrepo-com.svg";
+import figma from "../assets/figma-svgrepo-com.svg";
 const Skill = () => {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.15, delayChildren: 0.2 },
+    },
+  };
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut" },
+    },
+  };
+
+  const iconVariants = {
+    hidden: { opacity: 0, scale: 0.8, rotate: -15 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      rotate: 0,
+      transition: { duration: 0.5, ease: "easeOut" },
+    },
+    hover: {
+      scale: 1.2,
+      rotate: 5,
+      boxShadow: "0 15px 30px -5px rgba(99, 102, 241, 0.3)",
+      transition: { duration: 0.3, ease: "easeOut" },
+    },
+  };
+
   return (
-    <>
-      <div className="min-h-screen w-full  flex flex-col items-center justify-center ">
-        <h1 className="text-5xl pb-3 text-center font-bold text-transparent bg-gradient-to-r  from-indigo-700  to-blue-300 bg-clip-text ">
-          Skills
-        </h1>
-        <div className="h-98 w-[80%] p-4 bg-white/5 backdrop-blur-sm shadow-2xl rounded-2xl">
-          <h2 className="text-3xl   text-center font-bold text-transparent bg-gradient-to-tr from-blue-700 to-indigo-500 bg-clip-text">
-            Core Skill
+    <motion.section
+      id="skills"
+      className="min-h-screen w-full flex flex-col items-center justify-center px-4 py-12 "
+      variants={containerVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.2 }}
+    >
+      <motion.h1
+        className="text-4xl sm:text-5xl md:text-6xl pb-6 sm:pb-8 text-center font-bold text-transparent bg-gradient-to-r from-blue-500 via-cyan-400 to-indigo-500 bg-clip-text"
+        variants={containerVariants}
+      >
+        Skills
+      </motion.h1>
+
+      <motion.div
+        className="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full max-w-6xl mt-8 cursor-pointer"
+        variants={containerVariants}
+      >
+        <motion.div
+          className="p-6 bg-gray-900/80 backdrop-blur-md rounded-2xl shadow-lg"
+          variants={cardVariants}
+          whileHover={{ scale: 1.05, transition: { duration: 0.3 } }}
+        >
+          <h2 className="text-2xl font-semibold text-center text-indigo-400 mb-4">
+            Frontend
           </h2>
-          <div className="core  gap-2   h-1/2 w-full flex items-center sm:flex-col lg:flex-row justify-center  ">
-            <img src={htmlsvg} className="size-18 " alt="img" />
-            <img src={csssvg} className="size-18 " alt="img" />
-            <img src={jssvg} className="size-16 p-1 " alt="img" />
-            <img src={reactsvg} className="size-18" alt="img" />
-            <img src={tailwindsvg} className="size-18" alt="img" />
+          <div className="flex flex-wrap justify-center gap-4 cursor-pointer">
+            {[htmlsvg, csssvg, jssvg, reactsvg, tailwindsvg].map((icon, i) => (
+              <motion.img
+                key={i}
+                src={icon}
+                alt="Frontend Skill"
+                className="w-16 h-16 sm:w-20 sm:h-20 md:w-23 md:h-23 cursor-pointer"
+                variants={iconVariants}
+                whileHover="hover"
+              />
+            ))}
           </div>
-          <div className="gap-2   h-1/2 w-full flex items-center sm:flex-col lg:flex-row justify-center">
-            <img src={htmlsvg} className="size-18 " alt="img" />
-            <img src={csssvg} className="size-18 " alt="img" />
-            <img src={jssvg} className="size-16 p-1 " alt="img" />
-            <img src={reactsvg} className="size-18" alt="img" />
-            <img src={tailwindsvg} className="size-18" alt="img" />
-            <img src={nodesvg} className="size-18" alt="img" />
-            <img src={expressvg} className="size-18 " alt="img" />
-            <img src={postsqlsvg} className="size-18 " alt="img" />
-            <img src={mongodbsvg} className="size-18 " alt="img" />
-            <img src={firebasesvg} className="size-18 " alt="img" />
+        </motion.div>
+
+        <motion.div
+          className="p-6 bg-gray-900/80 backdrop-blur-md rounded-2xl shadow-lg"
+          variants={cardVariants}
+          whileHover={{ scale: 1.05, transition: { duration: 0.3 } }}
+
+        >
+          <h2 className="text-2xl font-semibold text-center text-cyan-500 mb-4">
+            Programming
+          </h2>
+          <div className="flex flex-wrap justify-center gap-4 cursor-pointer">
+            {[pythonsvg, csssvg, javsvg].map((icon, i) => (
+              <motion.img
+                key={i}
+                src={icon}
+                alt="Programming Skill"
+                className="w-16 h-16 sm:w-20 sm:h-20  md:w-23 md:h-23 cursor-pointer"
+                variants={iconVariants}
+                whileHover="hover"
+              />
+            ))}
           </div>
-          <div></div>
-        </div>
-      </div>
-    </>
+        </motion.div>
+
+        <motion.div
+          className="p-6 bg-gray-900/80 backdrop-blur-md rounded-2xl shadow-lg"
+          variants={cardVariants}
+          whileHover={{ scale: 1.05, transition: { duration: 0.3 } }}
+        >
+          <h2 className="text-2xl font-semibold text-center text-blue-400 mb-4">
+            Backend & Databases
+          </h2>
+          <div className="flex flex-wrap justify-center gap-4 cursor-pointer">
+            {[nodesvg, expressvg, postsqlsvg, mongodbsvg, firebasesvg].map(
+              (icon, i) => (
+                <motion.img
+                  key={i}
+                  src={icon}
+                  alt="Backend Skill"
+                  className="w-16 h-16 sm:w-20 sm:h-20  md:w-23 md:h-23 cursor-pointer"
+                  variants={iconVariants}
+                  whileHover="hover"
+                />
+              )
+            )}
+          </div>
+        </motion.div>
+
+        <motion.div
+          className="p-6 bg-gray-900/80 backdrop-blur-md rounded-2xl shadow-lg "
+          whileHover={{ scale: 1.05, transition: { duration: 0.3 } }}
+          variants={cardVariants}
+        >
+          <h2 className="text-2xl font-semibold text-center text-violet-400 mb-4">
+            Tools & Technologies
+          </h2>
+          <div className="flex flex-wrap justify-center gap-4 cursor-pointer">
+            {[githubsvg, jupyter, figma].map((icon, i) => (
+              <motion.img
+                key={i}
+                src={icon}
+                alt="Tools & Tech"
+                className="w-16 h-16 sm:w-20 sm:h-20 md:w-23 md:h-23 cursor-pointer"
+                variants={iconVariants}
+                whileHover="hover"
+              />
+            ))}
+          </div>
+        </motion.div>
+      </motion.div>
+    </motion.section>
   );
 };
 

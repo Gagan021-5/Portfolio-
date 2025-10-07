@@ -1,83 +1,118 @@
-import React from "react";
-import netflix from "../assets/n22.png";
-import garc from "../assets/gamearrc.png";
-import moviesai from "../assets/moviescam.png";
+import React, { useState } from "react";
+import { project } from "../utils/Projects";
+import { motion } from "framer-motion";
+
 const Project = () => {
+  const [data] = useState([...project]);
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.25,
+        delayChildren: 0.3,
+      },
+    },
+  };
+
+  const cardVariants = (index) => ({
+    hidden: {
+      opacity: 0,
+      x: index % 2 === 0 ? -100 : 100,
+      y: 30,
+      scale: 0.95,
+    },
+    visible: {
+      opacity: 1,
+      x: 0,
+      y: 0,
+      scale: 1,
+      transition: {
+        duration: 0.7,
+        ease: [0.25, 0.1, 0.25, 1],
+      },
+    },
+    hover: {
+      scale: 1.05,
+      y: -6,
+      boxShadow: "0 20px 40px rgba(79, 70, 229, 0.35)",
+      transition: { duration: 0.3, ease: "easeOut" },
+    },
+    tap: { scale: 0.98 },
+  });
+
   return (
-    <>
-      <div className="min-h-screen w-full flex flex-col items-center justify-center ">
-        <h1 className="text-5xl pb-3 text-center font-bold text-transparent bg-gradient-to-r  from-indigo-600 to-blue-300 bg-clip-text  ">
-          Projects
-        </h1>
-        <div className=" h-[98vh] w-full p-4 flex flex-col gap-5">
-          <div className="pro1 h-full w-full flex justify-end   ">
-            <div className="h-full w-[70%] flex flex-row  backdrop-blur-sm shadow-2xl bg-white/5 rounded-2xl ">
-              <div className="w-65 h-full rounded-lg bg-green-700">
-                <img
-                  src={garc}
-                  alt="img"
-                  className="object-cover h-full w-full rounded-lg"
-                />
-              </div>
-              <div className="">
+    <motion.section
+      id="project"
+      className="min-h-screen w-full flex flex-col items-center justify-center px-4 py-12 sm:py-16 "
+      variants={containerVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: false, amount: 0.2 }}
+    >
+      <motion.h1
+        className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-center mb-10 sm:mb-14 bg-gradient-to-r from-blue-500 via-cyan-400 to-indigo-500 bg-clip-text text-transparent"
+        initial={{ opacity: 0, y: -30 }}
+        whileInView={{
+          opacity: 1,
+          y: 0,
+          transition: { duration: 0.8, ease: "easeOut" },
+        }}
+        viewport={{ once: true }}
+      >
+        Projects
+      </motion.h1>
 
-              </div>
-              <div>
-              </div>
+      <motion.div
+        className="w-full max-w-6xl grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8"
+        variants={containerVariants}
+      >
+        {data.map((val, index) => (
+          <motion.a
+            key={index}
+            href={val.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex flex-col h-auto cursor-pointer bg-gradient-to-b from-[#14184b]/90 to-[#0f1236]/90 backdrop-blur-md border border-indigo-400/10 shadow-lg rounded-2xl overflow-hidden hover:border-indigo-400/30 transition-all duration-300"
+            variants={cardVariants(index)}
+            whileHover="hover"
+            whileTap="tap"
+          >
+            <div className="w-full aspect-video">
+              <img
+                src={val.img}
+                className="object-cover w-full h-full"
+                alt={val.title}
+                loading="lazy"
+              />
             </div>
-          </div>
-          <div className="pro1 h-full w-full flex justify-start  ">
-            <div className="h-full w-[70%] flex flex-row backdrop-blur-sm shadow-2xl bg-white/5  rounded-2xl">
-              <div className="w-65 h-full rounded-lg bg-green-700">
-                <img
-                  src={moviesai}
-                  alt="img"
-                  className="object-cover h-full w-full rounded-lg"
-                />
-              </div>
-              <div className="w-[70%] p-2  bg-blue-900 h-full">
-                   <h1 className="text-2xl  text-start font-semibold text-white/90">
-                  Netflix Clone
-                </h1>
-                <span className="text-gray-300">
-                  An AI-driven movie recommendation web app that allows users to
-                  get smart, natural language-based movie suggestions.
-                  Integrates Google’s Gemini API for understanding user prompts
-                  (e.g., "emotional thrillers like Interstellar") and fetches
-                  detailed metadata via the OMDb API. Built using React and
-                  styled with Tailwind CSS for a clean UI experience.
-                </span>
-              </div>
-            </div>
-          </div>
-          <div className="pro1 h-full w-full flex justify-end">
-            <div className="h-full w-[70%] flex flex-row  backdrop-blur-sm shadow-2xl bg-white/5 rounded-2xl">
-              <div className="w-65 h-full rounded-lg bg-green-700">
-                <img
-                  src={netflix}
-                  alt="img"
-                  className="object-cover h-full w-full rounded-lg "
-                />
+
+            <div className="p-5 sm:p-6 flex flex-col justify-between flex-1">
+              <div className="flex flex-col gap-2">
+                <h2 className="text-xl sm:text-2xl font-semibold text-white/95 tracking-wide">
+                  {val.title}
+                </h2>
+                <p className="text-gray-300/80 text-sm sm:text-base leading-relaxed line-clamp-3">
+                  {val.description}
+                </p>
               </div>
 
-              <div className="w-[70%] p-2  bg-blue-900 h-full">
-                <h1 className="text-2xl  text-start font-semibold text-white/90">
-                  Netflix Clone
-                </h1>
-                <span className="text-gray-300">
-                  A visually accurate and responsive clone of Netflix built
-                  using vanilla HTML, CSS, and JavaScript. Designed to replicate
-                  core UI features like horizontal scrolling carousels,
-                  interactive cards, mobile responsiveness, and modern layout
-                  styling. Optimized for performance with a Lighthouse score of
-                  90+.
-                </span>
+              <div className="flex flex-wrap gap-2 mt-4 sm:mt-5">
+                {val.skills.map((e, skillIndex) => (
+                  <span
+                    key={skillIndex}
+                    className="px-2.5 py-1 rounded-full bg-indigo-600/10 border border-indigo-500/20 text-indigo-200 text-xs sm:text-sm font-medium"
+                  >
+                    {e}
+                  </span>
+                ))}
               </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </>
+          </motion.a>
+        ))}
+      </motion.div>
+    </motion.section>
   );
 };
 
