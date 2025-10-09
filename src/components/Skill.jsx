@@ -73,7 +73,7 @@ const Skill = () => {
         variants={containerVariants}
       >
         <motion.div
-          className="p-6 bg-gray-900/80 backdrop-blur-md rounded-2xl shadow-lg"
+          className="p-6 backdrop-blur-md rounded-2xl shadow-lg bg-gradient-to-b from-[#14184b]/90 to-[#0f1236]/90 border border-transparent hover:border-indigo-400/30 hover:shadow-[0_0_25px_rgba(99,102,241,0.4)] transition-all duration-300"
           variants={cardVariants}
           whileHover={{ scale: 1.05, transition: { duration: 0.3 } }}
         >
@@ -81,29 +81,30 @@ const Skill = () => {
             Frontend
           </h2>
           <div className="flex flex-wrap justify-center gap-4 cursor-pointer">
-            {[htmlsvg, csssvg, jssvg, reactsvg, tailwindsvg, nextjs].map((icon, i) => (
-              <motion.img
-                key={i}
-                src={icon}
-                alt="Frontend Skill"
-                className="w-16 h-16 sm:w-20 sm:h-20 md:w-23 md:h-23 cursor-pointer"
-                variants={iconVariants}
-                whileHover="hover"
-              />
-            ))}
+            {[htmlsvg, csssvg, jssvg, reactsvg, tailwindsvg, nextjs].map(
+              (icon, i) => (
+                <motion.img
+                  key={i}
+                  src={icon}
+                  alt="Frontend Skill"
+                  className="w-16 h-16 sm:w-20 sm:h-20 md:w-23 md:h-23 cursor-pointer"
+                  variants={iconVariants}
+                  whileHover="hover"
+                />
+              )
+            )}
           </div>
         </motion.div>
 
         <motion.div
-          className="p-6 bg-gray-900/80 backdrop-blur-md rounded-2xl shadow-lg"
+          className="p-6 backdrop-blur-md rounded-2xl shadow-lg bg-gradient-to-b from-[#14184b]/90 to-[#0f1236]/90 border border-transparent hover:border-indigo-400/30 hover:shadow-[0_0_25px_rgba(99,102,241,0.4)] transition-all duration-300"
           variants={cardVariants}
           whileHover={{ scale: 1.05, transition: { duration: 0.3 } }}
-
         >
-          <h2 className="text-2xl font-semibold text-center text-cyan-500 mb-4">
+          <h2 className="text-2xl font-semibold text-center text-cyan-500 mb-4 ">
             Programming
           </h2>
-          <div className="flex flex-wrap justify-center gap-4 cursor-pointer">
+          <div className="flex flex-wrap justify-center gap-4 cursor-pointer ">
             {[pythonsvg, csvg, javsvg].map((icon, i) => (
               <motion.img
                 key={i}
@@ -118,7 +119,7 @@ const Skill = () => {
         </motion.div>
 
         <motion.div
-          className="p-6 bg-gray-900/80 backdrop-blur-md rounded-2xl shadow-lg"
+          className="p-6 backdrop-blur-md rounded-2xl shadow-lg bg-gradient-to-b from-[#14184b]/90 to-[#0f1236]/90 border border-transparent hover:border-indigo-400/30 hover:shadow-[0_0_25px_rgba(99,102,241,0.4)] transition-all duration-300"
           variants={cardVariants}
           whileHover={{ scale: 1.05, transition: { duration: 0.3 } }}
         >
@@ -142,7 +143,7 @@ const Skill = () => {
         </motion.div>
 
         <motion.div
-          className="p-6 bg-gray-900/80 backdrop-blur-md rounded-2xl shadow-lg "
+          className="p-6 backdrop-blur-md rounded-2xl shadow-lg bg-gradient-to-b from-[#14184b]/90 to-[#0f1236]/90 border border-transparent hover:border-indigo-400/30 hover:shadow-[0_0_25px_rgba(99,102,241,0.4)] transition-all duration-300"
           whileHover={{ scale: 1.05, transition: { duration: 0.3 } }}
           variants={cardVariants}
         >
@@ -150,7 +151,7 @@ const Skill = () => {
             Tools & Technologies
           </h2>
           <div className="flex flex-wrap justify-center gap-4 cursor-pointer">
-            {[git,githubsvg, jupyter, figma].map((icon, i) => (
+            {[git, githubsvg, jupyter, figma].map((icon, i) => (
               <motion.img
                 key={i}
                 src={icon}
