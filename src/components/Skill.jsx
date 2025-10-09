@@ -16,6 +16,8 @@ import csvg from "../assets/c++.svg";
 import javsvg from "../assets/java-svgrepo-com.svg";
 import jupyter from "../assets/jupyter-svgrepo-com.svg";
 import figma from "../assets/figma-svgrepo-com.svg";
+import nextjs from "../assets/nextjs-fill-svgrepo-com.svg";
+import git from "../assets/git-svgrepo-com.svg";
 const Skill = () => {
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -79,7 +81,7 @@ const Skill = () => {
             Frontend
           </h2>
           <div className="flex flex-wrap justify-center gap-4 cursor-pointer">
-            {[htmlsvg, csssvg, jssvg, reactsvg, tailwindsvg].map((icon, i) => (
+            {[htmlsvg, csssvg, jssvg, reactsvg, tailwindsvg, nextjs].map((icon, i) => (
               <motion.img
                 key={i}
                 src={icon}
@@ -102,7 +104,7 @@ const Skill = () => {
             Programming
           </h2>
           <div className="flex flex-wrap justify-center gap-4 cursor-pointer">
-            {[pythonsvg, csssvg, javsvg].map((icon, i) => (
+            {[pythonsvg, csvg, javsvg].map((icon, i) => (
               <motion.img
                 key={i}
                 src={icon}
@@ -148,7 +150,7 @@ const Skill = () => {
             Tools & Technologies
           </h2>
           <div className="flex flex-wrap justify-center gap-4 cursor-pointer">
-            {[githubsvg, jupyter, figma].map((icon, i) => (
+            {[git,githubsvg, jupyter, figma].map((icon, i) => (
               <motion.img
                 key={i}
                 src={icon}

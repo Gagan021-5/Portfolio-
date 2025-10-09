@@ -48,6 +48,24 @@ const Navbar = () => {
     { name: "Projects", href: "#project" },
   ];
 
+    const handleSmoothScroll = (e, href) => {
+    e.preventDefault();
+    const section = document.querySelector(href);
+    if (section) {
+      const navbarHeight = 80; 
+      const elementPosition = section.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - navbarHeight;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth"
+      });
+      
+      setActive(href);
+      setIsMobileMenuOpen(false);
+    }
+  };
+
   return (
     <motion.nav
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
@@ -63,6 +81,7 @@ const Navbar = () => {
       }}
     >
       <div className="flex justify-between items-center px-6 md:px-12 h-20">
+        {/* Logo / Greeting */}
         <motion.div whileHover={{ scale: 1.05 }} className="min-w-[200px]">
           <span className="text-2xl sm:text-3xl md:text-4xl font-extrabold bg-gradient-to-r from-indigo-500 to-cyan-400  bg-clip-text text-transparent select-none">
             <Typewriter
@@ -77,12 +96,13 @@ const Navbar = () => {
           </span>
         </motion.div>
 
+        {/* Desktop Nav */}
         <div className="hidden md:flex flex-1 justify-center items-center gap-8">
           {navLinks.map((link) => (
             <motion.a
               key={link.href}
               href={link.href}
-              onClick={() => setActive(link.href)}
+              onClick={(e) => handleSmoothScroll(e, link.href)}
               className={`text-xl font-medium transition-all duration-300 ${
                 active === link.href
                   ? "text-white"
@@ -101,6 +121,7 @@ const Navbar = () => {
           ))}
         </div>
 
+        {/* Social Icons */}
         <div className="hidden md:flex gap-4 ">
           {socialLinks.map((link, i) => (
             <motion.a
@@ -115,6 +136,7 @@ const Navbar = () => {
           ))}
         </div>
 
+        {/* Mobile Menu Button */}
         <motion.button
           className="md:hidden text-white text-3xl"
           onClick={() => setIsMobileMenuOpen((prev) => !prev)}
@@ -124,6 +146,7 @@ const Navbar = () => {
         </motion.button>
       </div>
 
+      {/* Mobile Menu */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
@@ -137,10 +160,7 @@ const Navbar = () => {
               <motion.a
                 key={link.href}
                 href={link.href}
-                onClick={() => {
-                  setActive(link.href);
-                  setIsMobileMenuOpen(false);
-                }}
+                onClick={(e) => handleSmoothScroll(e, link.href)}
                 className={`text-gray-300 text-lg py-3 w-full text-center hover:bg-slate-800/50 transition-all ${
                   active === link.href ? "text-white" : ""
                 }`}
