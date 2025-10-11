@@ -18,8 +18,9 @@ import jupyter from "../assets/jupyter-svgrepo-com.svg";
 import figma from "../assets/figma-svgrepo-com.svg";
 import nextjs from "../assets/nextjs-fill-svgrepo-com.svg";
 import git from "../assets/git-svgrepo-com.svg";
-import flask from "../assets/Flask.svg"
-import Fastapi from  "../assets/FastAPI.svg"
+import flask from "../assets/Flask.svg";
+import vscode from "../assets/vscode.svg";
+import Fastapi from "../assets/FastAPI.svg";
 const Skill = () => {
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -129,18 +130,24 @@ const Skill = () => {
             Backend & Databases
           </h2>
           <div className="flex flex-wrap justify-center gap-4 cursor-pointer">
-            {[nodesvg, expressvg, postsqlsvg, mongodbsvg, firebasesvg,flask,Fastapi].map(
-              (icon, i) => (
-                <motion.img
-                  key={i}
-                  src={icon}
-                  alt="Backend Skill"
-                  className="w-16 h-16 sm:w-20 sm:h-20  md:w-23 md:h-23 cursor-pointer"
-                  variants={iconVariants}
-                  whileHover="hover"
-                />
-              )
-            )}
+            {[
+              nodesvg,
+              expressvg,
+              postsqlsvg,
+              mongodbsvg,
+              firebasesvg,
+              flask,
+              Fastapi,
+            ].map((icon, i) => (
+              <motion.img
+                key={i}
+                src={icon}
+                alt="Backend Skill"
+                className="w-16 h-16 sm:w-20 sm:h-20  md:w-23 md:h-23 cursor-pointer"
+                variants={iconVariants}
+                whileHover="hover"
+              />
+            ))}
           </div>
         </motion.div>
 
@@ -153,7 +160,7 @@ const Skill = () => {
             Tools & Technologies
           </h2>
           <div className="flex flex-wrap justify-center gap-4 cursor-pointer">
-            {[git, githubsvg, jupyter, figma].map((icon, i) => (
+            {[git, githubsvg,vscode, jupyter , figma].map((icon, i) => (
               <motion.img
                 key={i}
                 src={icon}

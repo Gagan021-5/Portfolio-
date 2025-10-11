@@ -18,11 +18,12 @@ const About = () => {
     hidden: { opacity: 0, scale: 0.8 },
     visible: { opacity: 1, scale: 1, transition: { duration: 0.5, ease: "easeOut" } },
     hover: {
-      scale: 1.1,
+      scale: 1.1, 
       boxShadow: "0 15px 30px -5px rgba(59, 130, 246, 0.5)",
       transition: { duration: 0.3, ease: "easeOut" },
     },
   };
+  
 
   const stats = [
     { value: "10+", label: "Personal Projects" },
