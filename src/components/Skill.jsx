@@ -18,6 +18,8 @@ import jupyter from "../assets/jupyter-svgrepo-com.svg";
 import figma from "../assets/figma-svgrepo-com.svg";
 import nextjs from "../assets/nextjs-fill-svgrepo-com.svg";
 import git from "../assets/git-svgrepo-com.svg";
+import flask from "../assets/Flask.svg"
+import Fastapi from  "../assets/FastAPI.svg"
 const Skill = () => {
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -127,7 +129,7 @@ const Skill = () => {
             Backend & Databases
           </h2>
           <div className="flex flex-wrap justify-center gap-4 cursor-pointer">
-            {[nodesvg, expressvg, postsqlsvg, mongodbsvg, firebasesvg].map(
+            {[nodesvg, expressvg, postsqlsvg, mongodbsvg, firebasesvg,flask,Fastapi].map(
               (icon, i) => (
                 <motion.img
                   key={i}
