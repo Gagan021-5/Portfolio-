@@ -25,8 +25,8 @@ const About = () => {
   };
 
   const stats = [
-    { value: "5+", label: "Personal Projects" },
-    { value: "3+", label: "Web Apps Built" },
+    { value: "10+", label: "Personal Projects" },
+    { value: "4+", label: "Web Apps Built" },
     { value: "10+", label: "APIs Developed" },
   ];
 
