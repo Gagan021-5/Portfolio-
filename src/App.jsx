@@ -7,10 +7,24 @@ import About from "./components/About";
 import Skill from "./components/Skill";
 import Project from "./components/Project";
 import Contact from "./components/Contact";
-
+import { useEffect } from "react";
 function App() {
+    useEffect(() => {
+    const ribbon = document.getElementById("liquid-ribbon");
+
+    const move = (e) => {
+    ribbon.style.left = `${e.clientX}px`;
+    ribbon.style.top = `${e.clientY}px`;
+    };
+
+    window.addEventListener("mousemove", move);
+
+    return () => window.removeEventListener("mousemove", move);
+  }, []);
+
   return (
     <>
+          <div id="liquid-ribbon"></div>
       <ToastContainer 
         position="top-right"
         autoClose={3000}

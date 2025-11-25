@@ -8,11 +8,55 @@ body {
   box-sizing: border-box;
   font-family: "Quicksand", "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
   overflow-x: hidden;
-  background: linear-gradient(to bottom, #030712, #111827);
 
+  background: linear-gradient(to bottom, #030712, #0b1120);
   color: #e0e0ff;
 }
 
 html {
   scroll-behavior: smooth;
+}
+
+
+
+#liquid-ribbon {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 260px;
+  height: 260px;
+  pointer-events: none;
+  z-index: 50;
+
+  mix-blend-mode: lighten;
+  filter: blur(80px);
+  opacity: 0.85;
+
+  border-radius: 50%;
+
+  background: conic-gradient(
+    from 0deg,
+    #1e3a8a,  /* deep blue */
+    #0ea5e9,  /* sky cyan */
+    #000000,  /* deep black */
+    #1e40af,  /* darker indigo */
+    #020617   /* almost black */
+  );
+
+  transform: translate(-50%, -50%);
+  transition: transform 0.15s ease-out;
+
+  animation: ribbonPulse 6s ease-in-out infinite;
+}
+
+@keyframes ribbonPulse {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.25);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
 }
