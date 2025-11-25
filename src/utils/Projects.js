@@ -49,7 +49,7 @@ const project = [
     title: "NutriVigil",
     description:
     "Architected a privacy-first health scanner integrating Gemini 2.5 Pro and verified data streams, achieving sub-second latency and eliminating AI hallucinations for sensitive dietary queries.",
-    skills: ["React","Gemini 2.5 Pro","API Ninjas (Nutrition)"],
+    skills: ["React","Gemini 2.5 Pro","Express","API Ninjas (Nutrition)"],
   },
   {
     url: "https://moviestreammminng-phi.vercel.app/",
