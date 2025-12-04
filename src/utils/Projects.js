@@ -1,8 +1,8 @@
 import netflix from "../assets/n22.png";
 import garc from "../assets/gamearc.png";
 import moviesai from "../assets/moviescam.png";
-import whackmole from "../assets/whack.png";
-import nutrition from "../assets/nutrivigil.png"
+import houseprice from "../assets/houseprice.png"
+import nutrition from "../assets/nutrivigil.png";
 const project = [
   {
     url: "https://gamearc-frontend2.onrender.com/",
@@ -36,20 +36,20 @@ const project = [
     ],
   },
   {
-    url: "https://elegant-otter-8da223.netlify.app/",
-    img: whackmole,
-    title: "Whack-a-Mole",
+    url: "https://github.com/Gagan021-5/House-Price-Predictor-",
+    img: houseprice,
+    title: "House Price Predictor",
     description:
-    "A fun, interactive Whack-a-Mole game built with HTML, CSS, and JavaScript. Features animated gameplay, score tracking, and responsive design for desktop and mobile devices.",
-    skills: ["HTML", "Tailwind CSS", "JavaScript"],
+      "Developed a predictive model using linear regression and feature engineering to forecast house prices.Achieved 81% accuracy by optimizing key features and applying machine learning techniques.",
+    skills: ["React", "Tailwind", "Flask", "Scikit-Learn"],
   },
   {
     url: "http://nutf.onrender.com/",
     img: nutrition,
     title: "NutriVigil",
     description:
-    "Architected a privacy-first health scanner integrating Gemini 2.5 Pro and verified data streams, achieving sub-second latency and eliminating AI hallucinations for sensitive dietary queries.",
-    skills: ["React","Gemini 2.5 Pro","Express","API Ninjas (Nutrition)"],
+      "Architected a privacy-first health scanner integrating Gemini 2.5 Pro and verified data streams, achieving sub-second latency and eliminating AI hallucinations for sensitive dietary queries.",
+    skills: ["React", "Gemini 2.5 Pro", "Express", "API Ninjas (Nutrition)"],
   },
   {
     url: "https://moviestreammminng-phi.vercel.app/",
